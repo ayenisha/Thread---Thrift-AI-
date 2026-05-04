@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THREAD — AI Thrift Advisor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <!-- Noise overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Header -->
+  <header class="site-header stagger-1">
+    <div class="header-left">
+      <span class="logo-mark">T</span>
+      <div class="logo-text">
+        <span class="logo-name">THREAD</span>
+        <span class="logo-sub">AI Thrift Advisor</span>
+      </div>
+    </div>
+    <nav class="header-right">
+      <span class="header-tag">India's Second-Hand Oracle</span>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="toggle-icon">◑</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Main layout -->
+  <main class="main-grid">
+
+    <!-- Left panel — editorial sidebar -->
+    <aside class="sidebar stagger-2">
+      <div class="sidebar-inner">
+        <div class="sidebar-headline">
+          <p class="sidebar-kicker">Est. 2024</p>
+          <h1 class="sidebar-title">Find your <em>thrift</em> identity</h1>
+          <p class="sidebar-body">Tell THREAD your budget, vibe, and occasion. Get platform picks, outfit ideas, and sustainability insights — all rooted in India's thriving second-hand scene.</p>
+        </div>
+
+        <div class="quick-tags-section">
+          <p class="section-label">Quick Prompts</p>
+          <div class="quick-tags" id="quickTags">
+            <button class="qtag" data-prompt="I have a budget of ₹1000. What can I find?">Under ₹1000</button>
+            <button class="qtag" data-prompt="Looking for streetwear — oversized hoodies, baggy cargos, Y2K fits">Streetwear</button>
+            <button class="qtag" data-prompt="Need a complete college outfit, daily wear, budget is around ₹1500">College Outfits</button>
+            <button class="qtag" data-prompt="I want rare vintage pieces — something nobody else has">Vintage Finds</button>
+            <button class="qtag" data-prompt="Suggest some good Instagram thrift stores to follow">Insta Thrift Stores</button>
+            <button class="qtag" data-prompt="I'm going to a house party. What should I wear from thrift stores?">Party Fit</button>
+          </div>
+        </div>
+
+        <div class="platform-strip">
+          <p class="section-label">Platforms We Know</p>
+          <div class="platform-list">
+            <span class="platform-pill">Rewago</span>
+            <span class="platform-pill">FreeUp</span>
+            <span class="platform-pill">MyThriftKart</span>
+            <span class="platform-pill">Amalfi India</span>
+            <span class="platform-pill">Thrift Wallet</span>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <p class="footer-note">🌱 Every thrifted piece saves ~3,000 litres of water</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right panel — chat -->
+    <section class="chat-panel stagger-3">
+
+      <!-- Chat header -->
+      <div class="chat-header">
+        <div class="chat-status">
+          <span class="status-dot"></span>
+          <span>THREAD is ready</span>
+        </div>
+        <button class="clear-btn" id="clearChat">Clear chat</button>
+      </div>
+
+      <!-- Messages -->
+      <div class="chat-messages" id="chatMessages">
+        <div class="message ai-message intro-message">
+          <div class="message-avatar">T</div>
+          <div class="message-content">
+            <div class="message-bubble">
+              <p class="intro-greeting">Namaste. I'm <strong>THREAD</strong> — your personal Indian thrift advisor.</p>
+              <p>Tell me your <strong>budget</strong>, <strong>style</strong>, and <strong>occasion</strong>. I'll point you to the right platforms, build an outfit, and keep it sustainable.</p>
+              <p class="intro-hint">Try: <em>"₹800 budget, need something aesthetic for a date"</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input area -->
+      <div class="chat-input-area">
+        <div class="input-wrapper">
+          <textarea
+            id="userInput"
+            placeholder="Describe your vibe, budget, occasion... (English or Hindi)"
+            rows="1"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" aria-label="Send">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+        <p class="input-note">No fake links. No vague answers. Just real thrift intelligence.</p>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
