@@ -83,8 +83,13 @@ async function handleSend() {
     removeTypingIndicator(typingId);
 
     const reply = data.reply || data.error || 'Something went wrong.';
-    appendAIMessage(reply);
-    conversationHistory.push({ role: 'assistant', content: reply });
+
+    appendAIMessage(reply, data.products || []);
+
+    conversationHistory.push({
+      role: 'assistant',
+      content: reply
+    });
 
   } catch (err) {
     removeTypingIndicator(typingId);
@@ -109,19 +114,72 @@ function appendUserMessage(text) {
 }
 
 // ── Append AI message ──
-function appendAIMessage(text) {
+function appendAIMessage(text, products = []) {
+
   const div = document.createElement('div');
   div.className = 'message ai-message';
 
   const rendered = renderStructuredResponse(text);
 
+  let productsHTML = '';
+
+  if (products.length > 0) {
+
+    productsHTML = `
+      <div class="product-carousel">
+        ${products.map(product => `
+          
+          <a 
+            class="product-card"
+            href="${product.link}"
+            target="_blank"
+          >
+            
+            <img 
+              src="${product.thumbnail}" 
+              alt="${product.title}"
+              loadings="lazy"
+            >
+
+            <div class="product-info">
+
+              <h4>${product.title}</h4>
+
+              <p class="product-price">
+                ${product.price}
+              </p>
+
+              <span class="product-source">
+                ${product.source}
+              </span>
+
+            </div>
+
+          </a>
+
+        `).join('')}
+      </div>
+    `;
+  }
+
   div.innerHTML = `
     <div class="message-avatar">T</div>
+
     <div class="message-content">
-      <div class="message-bubble">${rendered}</div>
+
+      <div class="message-bubble">
+
+        ${rendered}
+
+        ${productsHTML}
+
+      </div>
+
     </div>
   `;
+
   chatMessages.appendChild(div);
+
   scrollToBottom();
 }
 
