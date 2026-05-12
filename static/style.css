@@ -528,6 +528,133 @@ textarea#userInput::placeholder { color: var(--text-muted); }
   color: var(--text-muted);
   letter-spacing: 0.04em;
 }
+/* ─────────────────────────────
+   Product Carousel
+───────────────────────────── */
+
+.product-carousel {
+  display: flex;
+  gap: 16px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  margin-top: 18px;
+  padding-bottom: 8px;
+
+  scroll-snap-type: x mandatory;
+
+  scrollbar-width: none;
+}
+
+.product-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Product Card ── */
+
+.product-card {
+  min-width: 220px;
+  max-width: 220px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  text-decoration: none;
+
+  color: inherit;
+
+  flex-shrink: 0;
+
+  scroll-snap-align: start;
+
+  transition:
+    transform 0.22s cubic-bezier(0.22,1,0.36,1),
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+/* ── Hover ── */
+
+.product-card:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--accent);
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.22),
+    0 0 0 1px var(--accent-glow);
+}
+
+/* ── Product Image ── */
+
+.product-card img {
+  width: 100%;
+  height: 260px;
+
+  object-fit: cover;
+
+  display: block;
+
+  background: var(--surface-2);
+}
+
+/* ── Product Info ── */
+
+.product-info {
+  padding: 14px;
+}
+
+/* ── Product Title ── */
+
+.product-info h4 {
+  font-size: 13px;
+  line-height: 1.45;
+
+  color: var(--text-primary);
+
+  margin-bottom: 10px;
+
+  overflow: hidden;
+
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+}
+
+/* ── Price ── */
+
+.product-price {
+  font-size: 15px;
+
+  font-weight: 700;
+
+  color: var(--accent);
+
+  margin-bottom: 6px;
+}
+
+/* ── Source ── */
+
+.product-source {
+  font-size: 11px;
+
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  letter-spacing: 0.05em;
+
+  text-transform: uppercase;
+}
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
